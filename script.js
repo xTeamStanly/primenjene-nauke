@@ -3,14 +3,15 @@ const unosTeksta = document.body.querySelector('#unos');
 const unosReci = document.body.querySelector('#unosReci');
 const dugme = document.body.querySelector('#dugme');
 const lista = document.body.querySelector('#ponudjeno');
+const cekiraj = document.body.querySelector("#cekiraj");
 
-const analizirajTekst = (tekst, reciFilter, teloTabele, teloTabele2) => {
+const analizirajTekst = (tekst, reciFilter, teloTabele, teloTabele2, sortiraj) => {
     let slova = new Map();
     let reci = new Map();
     let ukupnoSlova = 0;
 
 
-    let reciNiz = tekst.replace(/[$&+,:;=?@#|'<>\.^*() %\!\-\–"]/g , ' ').replace(/\n/g, " ").toLowerCase().split(' ').filter((rec) => !!rec).map((rec) => rec.trim());
+    let reciNiz = tekst.replace(/[$&+,:;=?@#|<>\.^*() %\!\-\–"]/g , ' ').replace(/[„“‘,\n]/g, " ").toLowerCase().split(' ').filter((rec) => !!rec).map((rec) => rec.trim());
     let ukupnoReci = reciNiz.length;
 
     for(let i = 0; i < reciNiz.length; i++) {
@@ -46,7 +47,7 @@ const analizirajTekst = (tekst, reciFilter, teloTabele, teloTabele2) => {
     slova.forEach((broj, slovo) => {
         nizSlovaBrojeva.push({ broj, slovo });
     });
-    nizSlovaBrojeva.sort((prvi, drugi) => drugi.broj - prvi.broj);
+
 
     // popuni niz reci gde se ubacuju samo one reci koje nisu bile u listi reci i sortiraj reci po ucestanosi
     let nizReciBrojeva = [];
@@ -70,7 +71,10 @@ const analizirajTekst = (tekst, reciFilter, teloTabele, teloTabele2) => {
         });
     }
 
-    nizReciBrojeva.sort((prva, druga) => druga.broj - prva.broj);
+    if(sortiraj == true) {
+        nizSlovaBrojeva.sort((prvi, drugi) => drugi.broj - prvi.broj);
+        nizReciBrojeva.sort((prva, druga) => druga.broj - prva.broj);
+    }
 
 
     // popuni tabelu slova na stranici
@@ -1537,7 +1541,7 @@ if(unosTeksta) {
             const teloTabele2 = document.body.querySelector('#rezultatReci');
             if(!teloTabele || !teloTabele2) { return; }
 
-            analizirajTekst(unosTeksta.value, unosReci.value, teloTabele, teloTabele2);
+            analizirajTekst(unosTeksta.value, unosReci.value, teloTabele, teloTabele2, cekiraj.checked);
 
         }
 
@@ -1549,7 +1553,7 @@ if(unosTeksta) {
             const teloTabele2 = document.body.querySelector('#rezultatReci');
             if(!teloTabele || !teloTabele2) { return; }
 
-            analizirajTekst(unosTeksta.value, unosReci.value, teloTabele, teloTabele2);
+            analizirajTekst(unosTeksta.value, unosReci.value, teloTabele, teloTabele2, cekiraj.checked);
         }
     }
 }
