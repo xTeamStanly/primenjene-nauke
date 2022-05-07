@@ -1,0 +1,53 @@
+body {
+    display: flex;
+    margin: 8;
+
+    flex-direction: column;
+    align-items: center;
+    align-content: flex-end;
+
+    background-color: black;
+
+    height: 100vh;
+}
+
+#unos {
+    resize: vertical;
+    height: 150px;
+    width: 80%;
+}
+
+#unosReci {
+    resize: vertical;
+    height: 50px;
+    width: 80%;
+}
+
+table {
+    width: 100%;
+    text-align: center;
+}
+
+button {
+    padding: 3px;
+}
+
+thead > tr { background-color: darkblue; font-size: large; }
+td { background-color: rebeccapurple; }
+
+table, th, tr, thead, tbody, td {
+    padding: 3px;
+    border-collapse: collapse;
+    border: 1px solid white;
+    text-align: center;
+}
+
+h1 { font-style: oblique; }
+
+.container {
+    width: 80%;
+    text-align: center;
+    color: white;
+    border-radius: 10px;
+}
+

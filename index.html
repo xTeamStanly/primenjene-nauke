@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Статистичка анализа текста</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+
+    <body>
+
+        <div class="container">
+            <h1><u>Статистичка анализа текста</u></h1>
+
+            <p>Листа речи за анализу, одвојити речи запетом/зарезом <br> Ако ово поље остане празно све речи ће бити анализиране</p>
+
+            <textarea id="unosReci"></textarea>
+
+            <br><br><br>
+
+            <p>Унос текста</p>
+
+            <select id="ponudjeno"></select>
+
+            <br><br>
+
+            <textarea id="unos"></textarea>
+
+
+            <br>
+
+            <button id="dugme">Израчунај (CTRL + C)</button>
+
+            <br><br>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Слово</th>
+                        <th>Учестаност</th>
+                        <th>Број појављивања</th>
+                    </tr>
+                </thead>
+                <tbody id="rezultat"></tbody>
+            </table>
+
+            <br><br>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Реч</th>
+                        <th>Учестаност</th>
+                        <th>Број појављивања</th>
+                    </tr>
+                </thead>
+                <tbody id="rezultatReci"></tbody>
+            </table>
+
+            <br><br><br>
+        </div>
+
+
+        <script src="./script.js"></script>
+    </body>
+</html>
